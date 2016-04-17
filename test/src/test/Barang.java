@@ -132,17 +132,15 @@ public class Barang {
     
     public void getBookKode(long i){
         for(int j=0;j<jumlahBuku;j++) {
-            if(getBooklist(j).getKode()== i){
-                setIdxBuku(j);
-                //System.out.println(getBooklist(j).toString());
+            if(getBooklist(j).getKode()==i){
+                idxBuku = j;
+                
                 tmpCari=1;
-            } else {
-                tmpCari=0;
             } 
         }
-            if(tmpCari!=1){
-                System.out.println("Buku tidak ditemukan");
-            }
+        if(tmpCari!=1){
+            System.out.println("Buku tidak ditemukan");
+        } 
     } 
        
     
