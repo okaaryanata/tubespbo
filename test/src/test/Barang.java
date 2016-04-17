@@ -113,15 +113,15 @@ public class Barang {
         if (jumlahBuku<booklist.length){
             booklist[jumlahBuku] = b;
             jumlahBuku++;
-            tmpCari=1;
+            //tmpCari=1;
         }
         else System.out.println("Booklist full");
-        tmpCari=0;
+        //tmpCari=0;
     }
     
     public void getBookIdx(int j){
             if(booklist[j]!=null){
-                idxBuku = j;
+                setIdxBuku(j);
                 System.out.println(getBooklist(j).toString());
                 tmpCari=1;
             } 
@@ -131,11 +131,13 @@ public class Barang {
     }
     
     public void getBookKode(long i){
-        for(int j=0;j<=jumlahBuku;j++) {
+        for(int j=0;j<jumlahBuku;j++) {
             if(getBooklist(j).getKode()== i){
-            idxBuku = j;
-            System.out.println(getBooklist(j).toString());
-            tmpCari=1;
+                setIdxBuku(j);
+                //System.out.println(getBooklist(j).toString());
+                tmpCari=1;
+            } else {
+                tmpCari=0;
             } 
         }
             if(tmpCari!=1){
