@@ -171,6 +171,7 @@ public class Anggota extends Orang {
     public void getAnggotaUser(String username){
         for(int j=0; j<getJumlahAnggota();j++){
                 if(getDaftarAnggota(j).getUsername().equals(username)){
+                    
                     c = true;
                     d=j;
                 }
@@ -182,15 +183,14 @@ public class Anggota extends Orang {
            
     
     public void getAnggotaNim(String nim){
-        for(int j=0; j<=getJumlahAnggota();j++){
+        for(int j=0; j<getJumlahAnggota();j++){
                 if(getDaftarAnggota(j).getNim().equals(nim)){
-                    //System.out.println("bla");
+                    
                     c = true;
                     d=j;
-                    
                 }
         }
-                if(c==false){
+                if(c==false){ 
                     System.out.println("Anggota tidak ditemukan");
                 }
     }
