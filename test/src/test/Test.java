@@ -16,9 +16,10 @@ public class Test {
      */
     public static void main(String[] args) {
         AplikasiPerpus p = new AplikasiPerpus();
-        //p.menuAwal();
+        p.menuAwal();
         //p.menuPetugas();
-        p.menuPinjam();
+        //p.menuPinjam();
+        //p.menuCariBukuA();
     }
     
 }
