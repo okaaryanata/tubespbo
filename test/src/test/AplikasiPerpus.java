@@ -337,30 +337,37 @@ public class AplikasiPerpus {
         System.out.println("1. username");
         System.out.println("2. nim");
         System.out.println("3. Kembali");
-        System.out.println("Pilihan : ");
+        System.out.print("Pilihan : ");
         pil = s.nextInt();
         switch(pil){
             case 1:
-                System.out.println("Username : ");
+                System.out.print("Username : ");
                 cek = s.next();
                 this.anggota.getAnggotaUser(cek);
                 if(this.anggota.c==true){
                     System.out.println("Anggota ditemukan");
                     this.cekAnggotaApp =1;
+                    break;
                 } else {
                     this.cekAnggotaApp =0;
                     System.out.println("Anggota tidak ditemukan");
+                    break;
                 }
             case 2 :
-                System.out.println("NIM : ");
+                System.out.print("NIM : ");
                 cek = s.next();
                 this.anggota.getAnggotaNim(cek);
+                //System.out.println(this.anggota.d);
+                //System.out.println(this.anggota.c);
+                
                 if(this.anggota.c==true){
                     System.out.println("Anggota ditemukan");
                     this.cekAnggotaApp =1;
+                    break;
                 } else {
                     this.cekAnggotaApp =0;
                     System.out.println("anggota tidak ditemukan");
+                    break;
                 }
             case 3 :
                 this.menuPetugas();
@@ -622,16 +629,20 @@ public class AplikasiPerpus {
         this.s = sc;
         this.menuCekAnggota();
         if(this.cekAnggotaApp==1){
+            System.out.println("");
             System.out.println("1. view peminjaman");
             System.out.println("2. input peminjaman");
             System.out.println("3. Kembali");
+            System.out.print("Pilihan ");
             int pil = s.nextInt();
             if(pil==1){
                 this.menuLihatPinjamP();
+                this.menuPinjam();
             } else if(pil == 2){
                 this.menuInputPinjam();
+                this.menuPinjam();
             } else if(pil == 3){
-                this.menuPetugas();
+                this.menuPinjam();
             } else{
                 System.out.println("masukan salah");
                 this.menuPinjam();
@@ -658,17 +669,19 @@ public class AplikasiPerpus {
     public void menuInputPinjam(){
         Scanner sc = new Scanner(System.in);
         this.s = sc;
-        System.out.println("kode buku : ");
+        System.out.print("kode buku : ");
         long kode = s.nextInt();
+        System.out.println(this.barang.getIdxBuku());
         this.barang.getBookKode(kode);
+        System.out.println(this.barang.getIdxBuku());
         if(this.barang.getIdxBuku()!=999){
-            System.out.println("id pinjam = ");
+            System.out.print("id pinjam = ");
             long idPeminjaman= s.nextInt();
-            System.out.println("tgl pinjam : ");
+            System.out.print("tgl pinjam : ");
             int tglPinjam = s.nextInt();
-            System.out.println("bln pinjam : ");
+            System.out.print("bln pinjam : ");
             int blnPinjam = s.nextInt();
-            System.out.println("thn pinjam : ");
+            System.out.print("thn pinjam : ");
             int thnPinjam = s.nextInt();
             
             Peminjaman p = new Peminjaman(idPeminjaman, this.barang.getBooklist(this.barang.getIdxBuku()), tglPinjam, blnPinjam, thnPinjam);
